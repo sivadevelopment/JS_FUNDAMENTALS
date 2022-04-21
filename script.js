@@ -1,120 +1,70 @@
-/* map filter reduce (higher order functions)*/
+studentArr = [];
+snameglobal = "";
 
-let arr = [5, 1, 3, 2, 6];
+//to store input student values
+function addSudents() {
+  let sname = document.getElementById("name").value;
+  let classLevels = document.getElementById("classLevels").value;
+  let course = document.getElementById("course").value;
+  let address = document.getElementById("address").value;
 
-// map Transform
-// Double every element in the array or tripple every element in the array
-
-/*
-let doubleArr = arr.map((item) => {
-  return item * 2;
-});
-console.log(doubleArr);
-
-let trippleArr = arr.map((item) => {
-  return item * 3;
-});
-console.log(trippleArr);
-
-let evenarr = arr.filter((item) => {
-  return item % 2 == 0;
-});
-
-console.log(evenarr);
-
-let oddArr = arr.filter((item) => {
-  return item % 2 == 1;
-});
-console.log(oddArr);
-
-function findSum(arr) {
-  let sum = 0;
-  for (let index = 0; index < arr.length; index++) {
-    sum = sum + arr[index];
+  if (!sname) {
+    let error = document.getElementById("error");
+    error.innerHTML =
+      "<span style='color: red;'>" + "Please enter a valid number</span>";
+  } else {
+    if (this.snameglobal == sname) {
+      let inputerror = document.getElementById("inputerror");
+      inputerror.innerHTML =
+        "<span style='color: red;'>" + "Please enter a different value</span>";
+    } else {
+      let studentObj = {
+        name: sname,
+        classLevel: classLevels,
+        Course: course,
+        Address: address,
+      };
+      this.studentArr.push(studentObj);
+      this.snameglobal = sname;
+      let lsize = document.getElementById("lsize");
+      lsize.innerHTML = `<span style='color: red;'>Total Number of Students :: ${studentArr.length}</span>`;
+      console.log(studentArr);
+    }
   }
-  return sum;
 }
 
-console.log(findSum(arr));
-
-let sumOfArr = arr.reduce((count, item) => {
-  return count + item;
-}, 0);
-console.log(sumOfArr);
-
-let findMaxArr = arr.reduce((max, item) => {
-  if (item > max) {
-    max = item;
-  }
-  return max;
-}, 0);
-console.log(sumOfArr);
-console.log(findMaxArr);
-*/
-
-let userArray = [
-  {
-    firstName: "srivalli",
-    lastName: "naga",
-    age: 16,
-  },
-  {
-    firstName: "siva",
-    lastName: "peddireddi",
-    age: 18,
-  },
-  {
-    firstName: "dattanash",
-    lastName: "naga",
-    age: 10,
-  },
-  {
-    firstName: "sudhir",
-    lastName: "venkata",
-    age: 16,
-  },
-  {
-    firstName: "manvitha",
-    lastName: "reddi",
-    age: 18,
-  },
-  {
-    firstName: "manish",
-    lastName: "reddi",
-    age: 10,
-  },
-];
-
-let firstnameLastnaeArr = userArray.map((item) => {
-  return item.firstName + " " + item.lastName;
-});
-
-console.log(firstnameLastnaeArr);
-
-let ageClaArr = userArray.reduce((arr, item) => {
-  if (arr[item.age]) {
-    arr[item.age] = ++arr[item.age];
+//To Clear Input Values
+function clearInputs() {
+  sname = document.getElementById("name").value;
+  if (!sname) {
+    let error = document.getElementById("errorclear");
+    error.innerHTML =
+      "<span style='color: red;'>" + "Please enter a valid number</span>";
   } else {
-    arr[item.age] = 1;
+    document.getElementById("name").value = " ";
+    document.getElementById("classLevels").value = " ";
+    document.getElementById("course").value = " ";
+    document.getElementById("address").value = " ";
   }
-  return arr;
-}, {});
+}
 
-console.log(ageClaArr);
-
-let filteredByAgeArr = userArray.filter((item) => {
-  return item.age > 15;
-});
-console.log(filteredByAgeArr);
-let filteredByAgeArrNames = filteredByAgeArr.map((item) => {
-  return item.firstName;
-});
-console.log(filteredByAgeArrNames);
-
-let filteredByAgeArrNamesReduce = userArray.reduce((arr, item) => {
-  if (item.age > 15) {
-    arr.push(item.firstName);
+//To Clear validation Errors
+function addClearError() {
+  const elementError = document.getElementById("error").innerHTML;
+  if (elementError) {
+    const element = document.getElementById("error");
+    element.innerHTML = " <span id='error'></span>";
   }
-  return arr;
-}, []);
-console.log(filteredByAgeArrNamesReduce);
+
+  const elementClearError = document.getElementById("errorclear").innerHTML;
+  if (elementClearError) {
+    const elementClear = document.getElementById("errorclear");
+    elementClear.innerHTML = " <span id='errorclear'></span>";
+  }
+
+  const elementinpuError = document.getElementById("inputerror").innerHTML;
+  if (elementinpuError) {
+    const elementClear = document.getElementById("inputerror");
+    elementClear.innerHTML = " <span id='inputerror'></span>";
+  }
+}

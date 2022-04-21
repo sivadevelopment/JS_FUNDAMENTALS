@@ -1,6 +1,9 @@
 <htmL>
+<title>Student Registration</title>
 
-<Head></Head>
+<Head>
+    <h5 style="margin: 10PX; background-color: azure; size: 50PX; padding: 15PX;">Student Registration Portal</h5>
+</Head>
 
 <body>
 
@@ -29,7 +32,46 @@
     </div>
 
     <div class="demo">Demo</div> -->
-    <button class="buttonClass">Click Me</button>
+    <div class="container">
+
+        <div class="" style="margin: 10px; padding: 10PX;background-color: azure; size: 100PX;">
+            <span id="error"></span>
+            <span id="inputerror"></span>
+            <div>
+                <label for="name">Student Name</label>
+                <input id="name" style="margin: 5px;" onkeypress="addClearError()" class="name" type="text">
+                <br>
+                <label for="name">Student Class</label>
+                <input id="classLevels" style="margin: 5px; margin-left: 7px;" onkeypress="addClearError()"
+                    class="classLevels" type="text">
+                <br>
+                <label for="course">Course</label>
+                <input id="course" style="margin: 5px; margin-left: 49px;" onkeypress="addClearError()" class="course"
+                    type="text">
+                <br>
+                <label for="address">Address</label>
+                <input id="address" style="margin: 5px; margin-left: 42px;" onkeypress="addClearError()" class="course"
+                    type="text">
+                <br>
+                <div>
+                    <span id="errorclear"></span>
+                </div>
+                <br>
+            </div>
+
+            <span id="lsize"></span>
+
+            <div style="margin-left: 95px;"">
+            <button style=" background-color: bisque; margin: 5PX; border: white; size: 10PX;" class=" buttonClass"
+                onclick="addSudents()">Click
+                Me</button>
+                <button style=" background-color: bisque;  margin: 5PX; border: white;  size: 10PX" class="buttonclear"
+                    onclick="clearInputs()">Clear
+                    Inputs</button>
+            </div>
+
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>
