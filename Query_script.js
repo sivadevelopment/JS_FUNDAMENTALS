@@ -6,6 +6,8 @@ document.querySelectorAll(selector)
 */
 
 let element = document.querySelector("div");
+let element1 = document.querySelector("div");
+let element2 = document.querySelector("div");
 console.log(element);
 console.log(element.innerHTML);
 console.log(element.innerText);
